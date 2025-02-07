@@ -12,14 +12,14 @@ from PIL import Image
 import io
 import os
 from datetime import datetime
-from styles import STYLE_SHEET
+from styles import Styles, Colors  # Styles와 Colors 클래스를 import
 
 class PrintMonitorApp(QMainWindow):
 
 #모든 UI 및 변수 초기화를 담당하는 생성자 메소드.
     def __init__(self):
         super().__init__()
-        self.setStyleSheet(STYLE_SHEET)
+        self.setStyleSheet(Styles.get_main_window_style())  # 기본 스타일 적용
         
         # URL 설정
         self.moonraker_base_url = "http://3dro.kr:3002"
@@ -376,7 +376,7 @@ class PrintMonitorApp(QMainWindow):
             # 로그 및 상태바 업데이트
             self.log_message("모니터링을 시작했습니다.")  # 로그 메시지 기록
             self.statusBar().showMessage('모니터링 중...')  # 상태바 메시지 업데이트
-            
+        
         except Exception as e:
             # 예외 발생 시 로그 메시지 기록 및 오류 메시지 박스 표시
             self.log_message(f"시작 오류: {str(e)}", 'error')
