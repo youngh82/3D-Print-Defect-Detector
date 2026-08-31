@@ -1,8 +1,0 @@
-# requirements.txt
-opencv-python
-numpy
-requests
-PyQt5
-azure-cognitiveservices-vision-customvision
-msrest
-Pillow
